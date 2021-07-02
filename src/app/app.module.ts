@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { HeroeInfoComponent } from './heroe-info/heroe-info.component';
 import { HomeComponent } from './home/home.component';
+import { HeroeSearchComponent } from './heroe-search/heroe-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     HeroeInfoComponent,
-    HomeComponent
+    HomeComponent,
+    HeroeSearchComponent
   ],
   imports: [
     BrowserModule,
