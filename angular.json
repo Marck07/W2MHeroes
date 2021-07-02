@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "W2MHeroes"
+    }
+  },
+  "defaultProject": "W2MHeroes",
+  "cli": {
+    "analytics": "d99c8e5d-1d5b-4023-ad7a-de6cb333ee46"
+  }
 }
