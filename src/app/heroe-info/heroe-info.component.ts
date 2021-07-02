@@ -27,6 +27,13 @@ export class HeroeInfoComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
+  save(): void {
+    if (this.hero) {
+      this.heroeService.updateHero(this.hero)
+        .subscribe(() => this.goBack());
+    }
+  }
+
   goBack(): void {
     this.location.back();
   }
