@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // Custom Components
-import { HeroeService } from '../heroe.service';
+import { HeroeService } from '../services/hero-service/heroe.service';
 import { Hero } from '../hero';
 import { HEROES } from '../mock-heroes';
 
