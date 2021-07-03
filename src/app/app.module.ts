@@ -13,6 +13,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroeInfoComponent } from './components/heroe-info/heroe-info.component';
 import { HomeComponent } from './components/home/home.component';
 import { HeroeSearchComponent } from './components/heroe-search/heroe-search.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HeroeSearchComponent } from './components/heroe-search/heroe-search.com
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
