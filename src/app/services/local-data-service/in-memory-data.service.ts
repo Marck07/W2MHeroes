@@ -7,7 +7,7 @@ import { Hero } from '../../models/hero';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    const heroes = [
+    const heroes: Hero[] = [
       { id: 1, name: 'Spiderman', identity: 'Peter Parker', age: 17, city: 'Nueva York', universe: 'Marvel' },
       { id: 2, name: 'Iron Man', identity: 'Tony Stark', age: 41, city: 'Nueva York', universe: 'Marvel' },
       { id: 3, name: 'Batman', identity: 'Bruce Wayne', age: 25, city: 'Gotham', universe: 'DC' },

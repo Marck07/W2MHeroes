@@ -7,7 +7,6 @@ h2 {
   margin: auto;
   max-width: 1000px;
 
-  /* flexbox */
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -45,4 +44,17 @@ a {
 
 a:hover {
   background-color: #000;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
 }
