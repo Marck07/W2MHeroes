@@ -6,8 +6,8 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Hero } from '../hero';
-import { HeroeService } from '../heroe.service';
+import { Hero } from '../../models/hero';
+import { HeroeService } from '../../services/hero-service/heroe.service';
 
 @Component({
   selector: 'app-heroe-search',
@@ -27,13 +27,8 @@ export class HeroeSearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.heroes$ = this.searchTerms.pipe(
-      // wait 300ms after each keystroke before considering the term
-      debounceTime(300),
-
-      // ignore new term if same as previous term
+      debounceTime(100),
       distinctUntilChanged(),
-
-      // switch to new search observable each time the term changes
       switchMap((term: string) => this.heroeService.searchHeroes(term)),
     );
   }
