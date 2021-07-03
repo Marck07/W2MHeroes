@@ -6,8 +6,8 @@ import {
    debounceTime, distinctUntilChanged, switchMap
  } from 'rxjs/operators';
 
-import { Hero } from '../hero';
-import { HeroeService } from '../services/hero-service/heroe.service';
+import { Hero } from '../../models/hero';
+import { HeroeService } from '../../services/hero-service/heroe.service';
 
 @Component({
   selector: 'app-heroe-search',

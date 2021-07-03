@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
 // custom components
-import { Hero } from '../../hero';
+import { Hero } from '../../models/hero';
 import { HeroeService } from '../../services/hero-service/heroe.service';
 
 @Component({
