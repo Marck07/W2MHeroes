@@ -3,6 +3,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 // Custom Components
 import { Hero } from '../../models/hero';
 import { HeroeService } from '../../services/hero-service/heroe.service';
@@ -43,7 +45,8 @@ export class HomeComponent implements OnInit {
 
   heroes: Hero[] = [];
 
-  constructor(private heroeService: HeroeService) {
+  constructor(private heroeService: HeroeService, private route: ActivatedRoute,
+              private router: Router) {
     this.dataSource = new MatTableDataSource<Hero>([]);
   }
 
@@ -72,6 +75,11 @@ export class HomeComponent implements OnInit {
       // dataSource = new MatTableDataSource<Hero>(ELEMENT_DATA);
 
     });
+  }
+
+  goToHero(id) {
+    console.log(id);
+    this.router.navigate(['/info/' + id]);
   }
 }
 

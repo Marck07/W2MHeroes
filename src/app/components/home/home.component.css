@@ -82,3 +82,16 @@ td, th {
 .mat-column-universe {
   width: 20%;
 }
+
+.hero-row {
+  cursor: pointer;
+  zoom: 0;
+  background: #FFF;
+  transition: zoom 1s, background 1s;
+}
+
+.hero-row:hover {
+  zoom: 1.3;
+  background: #808080;
+  transition: zoom 1s, background 1s;
+}
