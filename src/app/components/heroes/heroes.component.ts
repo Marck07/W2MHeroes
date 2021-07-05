@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 // Custom Components
 import { HeroeService } from '../../services/hero-service/heroe.service';
@@ -15,8 +16,9 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
   selectedHero?: Hero;
-
-  constructor(private heroeService: HeroeService) { }
+  universes: string[] = ['Marvel', 'DC'];
+  hero = {name:'', identity: '', age: 0, city: '', universe: ''};
+  constructor(private heroeService: HeroeService, private location: Location) { }
 
   ngOnInit() {
     this.getHeroes();
@@ -27,15 +29,20 @@ export class HeroesComponent implements OnInit {
       this.heroes = heroes
     });
   }
-  add(name: string): void {
-    name = name.trim();
-    if (!name) { return; }
-    this.heroeService.addHero({ name } as Hero)
+
+  add(): void {
+    this.heroeService.addHero(this.hero as Hero)
       .subscribe(hero => {
+        console.log('respuesta', hero)
         this.heroes.push(hero);
       });
+      this.goBack();
   }
 
+  goBack() {
+    this.location.back();
+
+  }
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroeService.deleteHero(hero.id).subscribe();

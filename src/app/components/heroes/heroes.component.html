@@ -1,20 +1,106 @@
-<h2>My Heroes</h2>
+<!-- <h2>My Heroes</h2>
 <div>
   <label for="new-hero">Hero name: </label>
-  <input id="new-hero" #heroName />
-  <button class="add-button" (click)="add(heroName.value); heroName.value=''">
+  <input id="new-hero" [(ngModel)]="hero.name" #heroName />
+  <button class="add-button" (click)="add();">
     Add hero
   </button>
-</div>
+</div> -->
 
-<ul class="heroes" *ngIf="heroes">
+<!-- <ul class="heroes" *ngIf="heroes">
   <li *ngFor="let hero of heroes">
     <a routerLink="/info/{{hero.id}}">
-      <span class="badge">{{hero.id}}</span> {{hero.name}}
+      <span class="badge">{{hero.age}}</span> {{hero.name}}
     </a>
     <button class="delete" title="delete hero"
     (click)="delete(hero)">x</button>
   </li>
-</ul>
+</ul> -->
+<div class="" style="padding: 0px 30px 0px 30px;">
+  <div class="grid-center" *ngIf="hero">
+    <h2>Crea tu Propio Héroe</h2>
+  </div>
+  <div class="" style="margin: 50px 150px 20px 150px;" *ngIf="hero">
+    <div class="grid">
+      <div class="col-6">
+        <mat-form-field class="" appearance="none" style="width: 100%;" >
+          <!-- <mat-label>Nombre</mat-label> -->
+          <label style="padding: 5px; font-weight: 500;">Nombre</label>
+          <input matInput type="text" [(ngModel)]="hero.name" autocomplete="off" style="background: #FFF;
+        border: 1px solid #cacaca; margin-top: 2px;
+    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Nombre">
+        </mat-form-field>
+      </div>
+      <div class="col-6">
+        <mat-form-field class="" appearance="none" style="width: 100%;">
+          <label style="padding: 5px; font-weight: 500;">Identidad</label>
+          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" style="background: #FFF;
+        border: 1px solid #cacaca; margin-top: 2px;
+    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Identidad Secreta">
+        </mat-form-field>
+      </div>
+    </div>
 
-<app-heroe-info [hero]="selectedHero"></app-heroe-info>
+    <div class="grid">
+      <div class="col-6">
+        <mat-form-field class="" appearance="none" style="width: 100%;" >
+          <!-- <mat-label>Nombre</mat-label> -->
+          <label style="padding: 5px; font-weight: 500;">Ciudad</label>
+          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" style="background: #FFF;
+        border: 1px solid #cacaca; margin-top: 2px;
+    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Ciudad">
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field class="" appearance="none" style="width: 100%;">
+          <label style="padding: 5px; font-weight: 500;">Edad</label>
+          <input matInput type="text" [(ngModel)]="hero.age" autocomplete="off" style="background: #FFF;
+        border: 1px solid #cacaca; margin-top: 2px;
+    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Edad">
+        </mat-form-field>
+      </div>
+      <div class="col-3">
+        <mat-form-field class="" appearance="none" style="width: 100%;">
+          <label style="padding: 5px; font-weight: 500;">Universo</label>
+          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" style="background: #FFF;
+        border: 1px solid #cacaca; margin-top: 2px;
+    padding: 12px; border-radius: 8px; width: 80%;">
+            <mat-option *ngFor="let universe of universes" [value]="universe">
+              {{universe}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="grid col-6" data-push-left="off-6">
+        <div class="col-6">
+          <button (click)="goBack()" style="width: 100%;
+            background: #0a2831;
+            padding: 10px;
+            border: 0;
+            color: #FFF;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;">Cancelar</button>
+        </div>
+        <div class="col-6">
+
+          <button (click)="add()" style="width: 100%;
+          background: #da742c;
+          padding: 10px;
+          border: 0;
+          color: #FFF;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;">Guardar</button>
+          <!-- <button >save</button> -->
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-heroe-info [hero]="selectedHero"></app-heroe-info> -->
