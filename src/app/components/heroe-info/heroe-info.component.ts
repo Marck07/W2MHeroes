@@ -1,10 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
+import {MatDialog} from '@angular/material/dialog';
 
 // custom components
 import { Hero } from '../../models/hero';
 import { HeroeService } from '../../services/hero-service/heroe.service';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 @Component({
   selector: 'app-heroe-info',
@@ -18,7 +20,7 @@ export class HeroeInfoComponent implements OnInit {
   public loading = false;
   constructor(private route: ActivatedRoute,
               private heroeService: HeroeService,
-              private location: Location) { }
+              private location: Location, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getHero();
@@ -36,15 +38,32 @@ export class HeroeInfoComponent implements OnInit {
 
   save(): void {
     if (this.hero) {
-      this.heroeService.updateHero(this.hero)
-        .subscribe(() => this.goBack());
+      const dialogRef = this.dialog.open(DialogConfirmComponent, {
+          data: {procedencia: 'Editar'}
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        if(result === true) {
+          this.heroeService.updateHero(this.hero)
+          .subscribe(() => this.goBack());
+        }
+      });
+
     }
   }
 
   delete(id): void {
-    this.heroeService.deleteHero(id).subscribe();
-    this.goBack();
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+      data: {procedencia: 'Eliminar'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result === true) {
+        this.heroeService.deleteHero(id).subscribe();
+        this.goBack();
+      }
+    });
   }
+
   goBack(): void {
     this.location.back();
   }

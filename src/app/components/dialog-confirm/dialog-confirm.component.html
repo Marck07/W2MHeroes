@@ -3,12 +3,26 @@
   <mat-dialog-content class="mat-typography">
     <h3>Estás a punto de crear un nuevo heroe, deseas continuar?</h3>
   </mat-dialog-content>
-  <mat-dialog-actions align="end" class="grid">
-    <div class="col-3">
-      <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
-    </div>
-    <div class="col-3">
-      <button mat-button [mat-dialog-close]="true" class="confirm-button" cdkFocusInitial>Continuar</button>
-    </div>
-  </mat-dialog-actions>
 </div>
+<div class="" *ngIf="data.procedencia === 'Eliminar'">
+  <h2 mat-dialog-title>Eliminando Heroe</h2>
+  <mat-dialog-content class="mat-typography">
+    <h3>Estas a punto de eliminar tu heroe y no habrá manera de recuperarlo.</h3>
+    <h3>Estas seguro de continuar?</h3>
+  </mat-dialog-content>
+</div>
+<div class="" *ngIf="data.procedencia === 'Editar'">
+  <h2 mat-dialog-title>Editando Heroe</h2>
+  <mat-dialog-content class="mat-typography">
+    <h3>Estas a punto de editar los datos de tu heroe, los datos anteriores serán sustituidos.</h3>
+    <h3>Estas seguro de continuar?</h3>
+  </mat-dialog-content>
+</div>
+<mat-dialog-actions align="end" class="grid">
+  <div class="col-3">
+    <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
+  </div>
+  <div class="col-3">
+    <button mat-button [mat-dialog-close]="true" class="confirm-button" cdkFocusInitial>Continuar</button>
+  </div>
+</mat-dialog-actions>
