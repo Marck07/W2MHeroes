@@ -32,7 +32,6 @@ export class HomeComponent implements OnInit {
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
   }
 
   ngOnInit() {
@@ -44,37 +43,19 @@ export class HomeComponent implements OnInit {
       this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  // Obtiene Heroes Almacenados
   getHeroes(): void {
     this.loading = true;
     this.heroeService.getHeroes().subscribe(heroes => {
       this.loading = false;
-      this.heroes = heroes;
-      console.log(this.heroes)
+      this.heroes = heroes.reverse();
       this.dataSource = new MatTableDataSource<Hero>(this.heroes);
       this.dataSource.paginator = this.paginator;
-
-      console.log(this.dataSource)
-      // dataSource = new MatTableDataSource<Hero>(ELEMENT_DATA);
-
     });
   }
 
+  // Dirige a la pagina de conutla heroe enviando Id como parametro
   goToHero(id) {
-    console.log(id);
     this.router.navigate(['/info/' + id]);
   }
 }
-
-
-/** Builds and returns a new User. */
-// function createNewUser(id: number): UserData {
-//   const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-//     NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-//
-//   return {
-//     id: id.toString(),
-//     name: name,
-//     progress: Math.round(Math.random() * 100).toString(),
-//     fruit: FRUITS[Math.round(Math.random() * (FRUITS.length - 1))]
-//   };
-// }

@@ -50,22 +50,18 @@ export class UppercaseDirective implements ControlValueAccessor {
     this._touched();
   }
 
-  /** Implementation for ControlValueAccessor interface */
   writeValue(value: any): void {
     this._renderer.setProperty(this._el.nativeElement, 'value', value);
   }
 
-  /** Implementation for ControlValueAccessor interface */
   registerOnChange(fn: (_: any) => void): void {
     this._onChange = fn;
   }
 
-  /** Implementation for ControlValueAccessor interface */
   registerOnTouched(fn: () => void): void {
     this._touched = fn;
   }
 
-  /** Implementation for ControlValueAccessor interface */
   setDisabledState(isDisabled: boolean): void {
     this._renderer.setProperty(this._el.nativeElement, 'disabled', isDisabled);
   }

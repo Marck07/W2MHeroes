@@ -29,6 +29,7 @@ export class HeroeInfoComponent implements OnInit {
     this.getHero();
   }
 
+  // Obtiene la informacion de un Heroe, Consulta por Id
   getHero(): void {
     this.loading = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
@@ -39,8 +40,8 @@ export class HeroeInfoComponent implements OnInit {
       });
   }
 
+  // Envia la informacion actualizada de un heroe
   save(): void {
-    console.log(this.hero)
     if(!this.hero.name){
       this.nameError = true;
       return;
@@ -57,6 +58,7 @@ export class HeroeInfoComponent implements OnInit {
       });
       dialogRef.afterClosed().subscribe(result => {
         if(result === true) {
+          // Edita un heroe enviando un objeto con la informacion actualizada
           this.heroeService.updateHero(this.hero)
           .subscribe(() => this.goBack());
         }
@@ -65,6 +67,7 @@ export class HeroeInfoComponent implements OnInit {
     }
   }
 
+  // Elimina un Heroe enviando el id
   delete(id): void {
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
       data: {procedencia: 'Eliminar'}
@@ -78,6 +81,7 @@ export class HeroeInfoComponent implements OnInit {
     });
   }
 
+  // Retrocede a la pagina anterior
   goBack(): void {
     this.location.back();
   }
