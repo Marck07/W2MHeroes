@@ -7,3 +7,26 @@ html {
   background: #f7f7f7;
 }
 body { margin-top: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.cancel-button {
+  width: 100%;
+  background: #0a2831;
+  padding: 10px;
+  border: 0;
+  color: #FFF;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-button {
+  width: 100%;
+  background: #da742c;
+  padding: 10px;
+  border: 0;
+  color: #FFF;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

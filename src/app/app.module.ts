@@ -8,6 +8,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
+import {MatDialogModule} from '@angular/material/dialog';
+
 
 
 // Install components
@@ -23,6 +25,7 @@ import { HeroeInfoComponent } from './components/heroe-info/heroe-info.component
 import { HomeComponent } from './components/home/home.component';
 import { HeroeSearchComponent } from './components/heroe-search/heroe-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HeroesComponent,
     HeroeInfoComponent,
     HomeComponent,
-    HeroeSearchComponent
+    HeroeSearchComponent,
+    DialogConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +47,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatIconModule,
     MatSelectModule,
+    MatDialogModule,
     NgxLoadingModule.forRoot({}),
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
