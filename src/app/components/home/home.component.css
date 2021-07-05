@@ -95,3 +95,17 @@ td, th {
   background: #808080;
   transition: zoom 1s, background 1s;
 }
+
+.search-input {
+  background: #FFF;
+  border: 1.5px solid #cacaca;
+  padding: 12px;
+  border-radius: 28px;
+
+}
+
+.search-icon {
+  position: absolute;
+  top: 15px;
+  right: -14px;
+}
