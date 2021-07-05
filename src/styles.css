@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'gridlex';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/*html, body { height: 100%; }*/
+html {
+  height: 100%;
+  background: #f7f7f7;
+}
+body { margin-top: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.cancel-button {
+  width: 100%;
+  background: #0a2831;
+  padding: 10px;
+  border: 0;
+  color: #FFF;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.confirm-button {
+  width: 100%;
+  background: #da742c;
+  padding: 10px;
+  border: 0;
+  color: #FFF;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}

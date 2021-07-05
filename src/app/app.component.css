@@ -1,0 +1,15 @@
+.mat-form-field-label-wrapper {
+    position: absolute;
+    left: 10px!important;
+    top: 2px!important;
+    box-sizing: content-box;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.mat-form-field-underline {
+    height: 0px!important;
+    visibility: hidden;
+}

@@ -1,8 +1,58 @@
-<h2>Top Heroes</h2>
-<div class="heroes-menu">
-  <a *ngFor="let hero of heroes"
-    routerLink="/info/{{hero.id}}">
-    {{hero.name}}
-  </a>
+<div class="" style="padding: 0px 30px 0px 30px;">
+  <div class="grid-center">
+    <h2>Bienvenido a la busqueda de Heroes!</h2>
+  </div>
+  <div class="mat-elevation-z8">
+    <div class="grid">
+      <div class="col-4" data-push-left="off-7" style="padding-left: 25px;">
+        <mat-form-field appearance="none">
+          <input matInput autocomplete="off" style="background: #FFF;
+        border: 1.5px solid #cacaca;
+    padding: 12px;
+    border-radius: 28px;"
+          (keyup)="applyFilter($event)" placeholder="Ingresa una palabra y buscaremos por ti." #input>
+          <mat-icon aria-hidden="false" aria-label="search icon" style="    position: absolute;
+    top: 15px;
+    right: -14px;">search</mat-icon>
+
+        </mat-form-field>
+      </div>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef> No. </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.id}} </td>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.name}} </td>
+      </ng-container>
+      <ng-container matColumnDef="identity">
+        <th mat-header-cell *matHeaderCellDef> Identidad </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.identity}} </td>
+      </ng-container>
+      <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef> Edad </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.age}} </td>
+      </ng-container>
+      <ng-container matColumnDef="city">
+        <th mat-header-cell *matHeaderCellDef> Ciudad </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.city}} </td>
+      </ng-container>
+      <ng-container matColumnDef="universe">
+        <th mat-header-cell *matHeaderCellDef> Universo </th>
+        <td mat-cell *matCellDef="let hero"> {{hero.universe}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row class="hero-row" *matRowDef="let row; columns: displayedColumns;" (click)="goToHero(row.id)"></tr>
+    </table>
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">Ciudad Desprotegida. No se encontraron datos con "{{input.value}}"</td>
+      <td class="mat-cell" colspan="4">Protege a tu ciudad creando un nuevo héroe.</td>
+    </tr>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
 </div>
-<app-heroe-search></app-heroe-search>
+
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
