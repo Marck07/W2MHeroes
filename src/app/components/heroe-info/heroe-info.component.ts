@@ -36,6 +36,10 @@ export class HeroeInfoComponent implements OnInit {
     }
   }
 
+  delete(id): void {
+    this.heroeService.deleteHero(id).subscribe();
+    this.goBack();
+  }
   goBack(): void {
     this.location.back();
   }

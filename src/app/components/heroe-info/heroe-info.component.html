@@ -56,28 +56,37 @@
     </div>
     <div class="grid">
       <div class="grid col-6" data-push-left="off-6">
-        <div class="col-6">
+        <div class="col-4">
+          <button (click)="goBack()" style="width: 100%;
+            background: #0a2831;
+            padding: 10px;
+            border: 0;
+            color: #FFF;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;">Cancelar</button>
+        </div>
+        <div class="col-4">
+          <button (click)="delete(hero.id)" style="    width: 100%;
+            background: #c53025;
+            padding: 10px;
+            border: 0;
+            color: #FFF;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;">Eliminar</button>
+        </div>
+        <div class="col-4">
 
           <button (click)="save()" style="width: 100%;
-    background: #da742c;
-    padding: 10px;
-    border: 0;
-    color: #FFF;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;">Guardar</button>
+          background: #da742c;
+          padding: 10px;
+          border: 0;
+          color: #FFF;
+          border-radius: 8px;
+          font-weight: bold;
+          cursor: pointer;">Guardar</button>
           <!-- <button >save</button> -->
-
-        </div>
-        <div class="col-6">
-          <button (click)="goBack()" style="    width: 100%;
-    background: #0a2831;
-    padding: 10px;
-    border: 0;
-    color: #FFF;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;">Cancelar</button>
 
         </div>
 
