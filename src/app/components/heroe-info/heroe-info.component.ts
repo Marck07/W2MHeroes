@@ -13,6 +13,8 @@ import { HeroeService } from '../../services/hero-service/heroe.service';
 })
 export class HeroeInfoComponent implements OnInit {
   @Input() hero?: Hero;
+
+  universes: string[] = ['Marvel', 'DC'];
   constructor(private route: ActivatedRoute,
               private heroeService: HeroeService,
               private location: Location) { }
