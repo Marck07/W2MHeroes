@@ -20,6 +20,9 @@ export class HeroesComponent implements OnInit {
   selectedHero?: Hero;
   universes: string[] = ['Marvel', 'DC'];
   hero = {name:'', identity: '', age: 0, city: '', universe: ''};
+  nameError = false;
+  identityError = false;
+  universeError = false;
   constructor(private heroeService: HeroeService, private location: Location, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -33,6 +36,16 @@ export class HeroesComponent implements OnInit {
   }
 
   add(): void {
+    if(!this.hero.name){
+      this.nameError = true;
+      return;
+    } else if(!this.hero.identity) {
+      this.identityError = true;
+      return;
+    } else if(!this.hero.universe) {
+      this.universeError = true;
+      return;
+    }
     const dialogRef = this.dialog.open(DialogConfirmComponent, {
       data: {procedencia: 'Nuevo'}
     });
