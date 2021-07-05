@@ -26,6 +26,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HeroeSearchComponent } from './components/heroe-search/heroe-search.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confirm.component';
+import { UppercaseDirective } from './uppercase.directive';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DialogConfirmComponent } from './components/dialog-confirm/dialog-confi
     HeroeInfoComponent,
     HomeComponent,
     HeroeSearchComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    UppercaseDirective
   ],
   imports: [
     BrowserModule,
