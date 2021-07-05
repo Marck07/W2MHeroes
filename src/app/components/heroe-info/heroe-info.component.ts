@@ -15,6 +15,7 @@ export class HeroeInfoComponent implements OnInit {
   @Input() hero?: Hero;
 
   universes: string[] = ['Marvel', 'DC'];
+  public loading = false;
   constructor(private route: ActivatedRoute,
               private heroeService: HeroeService,
               private location: Location) { }
@@ -24,9 +25,13 @@ export class HeroeInfoComponent implements OnInit {
   }
 
   getHero(): void {
+    this.loading = true;
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroeService.getHero(id)
-      .subscribe(hero => this.hero = hero);
+      .subscribe(hero => {
+        this.hero = hero
+        this.loading = false;
+      });
   }
 
   save(): void {

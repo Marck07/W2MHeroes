@@ -10,8 +10,10 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatSelectModule} from '@angular/material/select';
 
 
+// Install components
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/local-data-service/in-memory-data.service';
+import { NgxLoadingModule } from 'ngx-loading';
 
 // Custom Components
 import { AppRoutingModule } from './app-routing.module';
@@ -41,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatPaginatorModule,
     MatIconModule,
     MatSelectModule,
+    NgxLoadingModule.forRoot({}),
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
     ),
