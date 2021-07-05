@@ -17,6 +17,9 @@ export class HeroeInfoComponent implements OnInit {
   @Input() hero?: Hero;
 
   universes: string[] = ['Marvel', 'DC'];
+  nameError = false;
+  identityError = false;
+  universeError = false;
   public loading = false;
   constructor(private route: ActivatedRoute,
               private heroeService: HeroeService,
@@ -37,6 +40,17 @@ export class HeroeInfoComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.hero)
+    if(!this.hero.name){
+      this.nameError = true;
+      return;
+    } else if(!this.hero.identity) {
+      this.identityError = true;
+      return;
+    } else if(!this.hero.universe) {
+      this.universeError = true;
+      return;
+    }
     if (this.hero) {
       const dialogRef = this.dialog.open(DialogConfirmComponent, {
           data: {procedencia: 'Editar'}
