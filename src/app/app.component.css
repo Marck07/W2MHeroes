@@ -13,3 +13,18 @@
     height: 0px!important;
     visibility: hidden;
 }
+
+.header-container {
+  background: #0a2831;
+  color: #FFF;
+  padding: 20px;
+}
+
+.input-hero {
+  background: #FFF!important;
+  border: 1px solid #cacaca!important;
+  margin-top: 2px!important;
+  padding: 12px!important;
+  border-radius: 8px!important;
+  width: 90%!important;
+}

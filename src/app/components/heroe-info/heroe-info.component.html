@@ -6,22 +6,22 @@
     <div class="grid">
       <div class="col-6">
         <mat-form-field class="" appearance="none" style="width: 100%;" >
-          <label style="padding: 5px; font-weight: 500;">Nombre</label>
+          <label class="label-input">Nombre</label>
           <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" style="background: #FFF;
         border: 1px solid #cacaca; margin-top: 2px;
     padding: 12px; border-radius: 8px; width: 90%;" placeholder="Nombre"><br>
-    <label style="font-size: 10px; color: red; padding-left: 5px; padding-top: 2px;" *ngIf="nameError && !hero.name">
+    <label class="label-input-error" *ngIf="nameError && !hero.name">
       El nombre es Obligatorio
     </label>
         </mat-form-field>
       </div>
       <div class="col-6">
         <mat-form-field class="" appearance="none" style="width: 100%;">
-          <label style="padding: 5px; font-weight: 500;">Identidad</label>
+          <label class="label-input">Identidad</label>
           <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" style="background: #FFF;
         border: 1px solid #cacaca; margin-top: 2px;
     padding: 12px; border-radius: 8px; width: 90%;" placeholder="Identidad Secreta"><br>
-    <label style="font-size: 10px; color: red; padding-left: 5px; padding-top: 2px;" *ngIf="identityError && !hero.identity">
+    <label class="label-input-error" *ngIf="identityError && !hero.identity">
       La Identidad es Obligatoria
     </label>
         </mat-form-field>
@@ -31,7 +31,7 @@
     <div class="grid">
       <div class="col-6">
         <mat-form-field class="" appearance="none" style="width: 100%;" >
-          <label style="padding: 5px; font-weight: 500;">Ciudad</label>
+          <label class="label-input">Ciudad</label>
           <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" style="background: #FFF;
         border: 1px solid #cacaca; margin-top: 2px;
     padding: 12px; border-radius: 8px; width: 90%;" placeholder="Ciudad">
@@ -39,7 +39,7 @@
       </div>
       <div class="col-3">
         <mat-form-field class="" appearance="none" style="width: 100%;">
-          <label style="padding: 5px; font-weight: 500;">Edad</label>
+          <label class="label-input">Edad</label>
           <input matInput type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" style="background: #FFF;
         border: 1px solid #cacaca; margin-top: 2px;
     padding: 12px; border-radius: 8px; width: 90%;" placeholder="Edad">
@@ -47,7 +47,7 @@
       </div>
       <div class="col-3">
         <mat-form-field class="" appearance="none" style="width: 100%;">
-          <label style="padding: 5px; font-weight: 500;">Universo</label>
+          <label class="label-input">Universo</label>
           <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" style="background: #FFF;
         border: 1px solid #cacaca; margin-top: 2px;
     padding: 12px; border-radius: 8px; width: 80%;">
@@ -55,7 +55,7 @@
               {{universe}}
             </mat-option>
           </mat-select><br>
-          <label style="font-size: 10px; color: red; padding-left: 5px; padding-top: 2px;" *ngIf="universeError && !hero.universe">
+          <label class="label-input-error" *ngIf="universeError && !hero.universe">
             Universo Obligatorio
           </label>
         </mat-form-field>
