@@ -18,6 +18,7 @@ export class HeroeService {
   constructor(
     private http: HttpClient) { }
 
+  // Obtiene una lista de heroes
   getHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
@@ -26,6 +27,7 @@ export class HeroeService {
       );
   }
 
+  // Regresa Error en caso de no encontrar la ruta especificada (o no encontrar el id del heroe)
   getHeroNo404<Data>(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/?id=${id}`;
     return this.http.get<Hero[]>(url)
@@ -39,6 +41,7 @@ export class HeroeService {
       );
   }
 
+  // Consulta Heroe por id
   getHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
@@ -47,6 +50,7 @@ export class HeroeService {
     );
   }
 
+  // Busqueda de incidencias de un heroe a travez de parametros ingresados
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {
       return of([]);
@@ -59,6 +63,7 @@ export class HeroeService {
     );
   }
 
+  // Crea un nuevo heroe enviando un objeto con parametros
   addHero(hero: Hero): Observable<Hero> {
     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => console.log(`added hero w/ id=${newHero.id}`)),
@@ -66,6 +71,7 @@ export class HeroeService {
     );
   }
 
+  // Elimina un heroe por medio del ID
   deleteHero(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/${id}`;
 
@@ -75,6 +81,7 @@ export class HeroeService {
     );
   }
 
+  // Actualiza la informacion de un heroe enviando un objeto con parametros
   updateHero(hero: Hero): Observable<any> {
     return this.http.put(this.heroesUrl, hero, this.httpOptions).pipe(
       tap(_ => console.log(`updated hero id=${hero.id}`)),
@@ -82,6 +89,7 @@ export class HeroeService {
     );
   }
 
+  // Catrch Error
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -20,7 +20,6 @@ export class HeroeSearchComponent implements OnInit {
 
   constructor(private heroeService: HeroeService) {}
 
-  // Push a search term into the observable stream.
   search(term: string): void {
     this.searchTerms.next(term);
   }

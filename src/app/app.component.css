@@ -20,6 +20,11 @@
   padding: 20px;
 }
 
+.cHand {
+  cursor: pointer;
+  text-decoration: none;
+}
+
 .input-hero {
   background: #FFF!important;
   border: 1px solid #cacaca!important;

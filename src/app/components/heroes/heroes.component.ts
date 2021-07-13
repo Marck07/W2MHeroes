@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 // Custom Components
 import { HeroeService } from '../../services/hero-service/heroe.service';
 import { Hero } from '../../models/hero';
@@ -23,19 +25,23 @@ export class HeroesComponent implements OnInit {
   nameError = false;
   identityError = false;
   universeError = false;
-  constructor(private heroeService: HeroeService, private location: Location, public dialog: MatDialog) { }
+  constructor(private heroeService: HeroeService, private location: Location, public dialog: MatDialog, private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     this.getHeroes();
   }
 
+  // Obtiene lista de Heroes
   getHeroes(): void {
   this.heroeService.getHeroes().subscribe(heroes => {
       this.heroes = heroes
     });
   }
 
+  // Agrega un nuevo Heroe
   add(): void {
+    // Valida Nombre, identidad y universo obligatorios.
     if(!this.hero.name){
       this.nameError = true;
       return;
@@ -51,11 +57,10 @@ export class HeroesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
       if(result === true) {
+        // Envia un objeto Heroe para crear uno nuevo.
         this.heroeService.addHero(this.hero as Hero)
           .subscribe(hero => {
-            console.log('respuesta', hero)
             this.heroes.push(hero);
           });
           this.goBack();
@@ -64,23 +69,15 @@ export class HeroesComponent implements OnInit {
 
   }
 
+  // Regresa a la pagina de inicio
   goBack() {
-    this.location.back();
-
+    this.router.navigate(['/home/']);
   }
+
+  // Elimina un heroe enviando el ID
   delete(hero: Hero): void {
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroeService.deleteHero(hero.id).subscribe();
   }
 
-  // openDialog() {
-  //   const dialogRef = this.dialog.open(DialogConfirmComponent);
-  //
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(`Dialog result: ${result}`);
-  //   });
-  // }
-  // onSelect(hero: Hero): void {
-  //   this.selectedHero = hero;
-  // }
 }
