@@ -7,9 +7,7 @@
       <div class="col-6">
         <mat-form-field class="W100" appearance="none" >
           <label class="label-input">Nombre</label>
-          <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Nombre"><br>
+          <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" class="hero-input" placeholder="Nombre"><br>
         <label class="label-input-error" *ngIf="nameError && !hero.name">
           El nombre es Obligatorio
         </label>
@@ -18,9 +16,7 @@
       <div class="col-6">
         <mat-form-field class="W100" appearance="none">
           <label class="label-input">Identidad</label>
-          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Identidad Secreta"><br>
+          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" class="hero-input" placeholder="Identidad Secreta"><br>
           <label class="label-input-error" *ngIf="identityError && !hero.identity">
             La Identidad es Obligatoria
           </label>
@@ -32,25 +28,19 @@
       <div class="col-6">
         <mat-form-field class="W100" appearance="none" >
           <label class="label-input">Ciudad</label>
-          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Ciudad">
+          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" class="hero-input" placeholder="Ciudad">
         </mat-form-field>
       </div>
       <div class="col-3">
         <mat-form-field class="W100" appearance="none">
           <label class="label-input">Edad</label>
-          <input matInput type="text" type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Edad">
+          <input matInput type="text" type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" class="hero-input" placeholder="Edad">
         </mat-form-field>
       </div>
       <div class="col-3">
         <mat-form-field class="W100" appearance="none">
           <label class="label-input">Universo</label>
-          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 80%;">
+          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" class="select-button">
             <mat-option *ngFor="let universe of universes" [value]="universe">
               {{universe}}
             </mat-option>
