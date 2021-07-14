@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 // custom components
 import { Hero } from '../../models/hero';
@@ -21,12 +22,14 @@ export class HeroeInfoComponent implements OnInit {
   identityError = false;
   universeError = false;
   public loading = false;
+  heroControl: FormGroup;
   constructor(private route: ActivatedRoute,
               private heroeService: HeroeService,
-              private location: Location, public dialog: MatDialog) { }
+              private location: Location, public dialog: MatDialog, public formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
     this.getHero();
+
   }
 
   // Obtiene la informacion de un Heroe, Consulta por Id
@@ -36,12 +39,21 @@ export class HeroeInfoComponent implements OnInit {
     this.heroeService.getHero(id)
       .subscribe(hero => {
         this.hero = hero
+        this.heroControl = this.formBuilder.group({
+          name: [this.hero.name],
+          identity: [this.hero.identity],
+          city: [this.hero.city],
+          age: [this.hero.age],
+          universe: [this.hero.universe],
+          id: [this.hero.id]
+        });
         this.loading = false;
       });
   }
 
   // Envia la informacion actualizada de un heroe
   save(): void {
+    this.hero = this.heroControl.value;
     if(!this.hero.name){
       this.nameError = true;
       return;
