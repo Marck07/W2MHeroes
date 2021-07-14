@@ -2,12 +2,14 @@ import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatDialog} from '@angular/material/dialog';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 // Custom Components
 import { Hero } from '../../models/hero';
 import { HeroeService } from '../../services/hero-service/heroe.service';
+import { DialogConfirmComponent } from '../dialog-confirm/dialog-confirm.component';
 
 
 @Component({
@@ -26,7 +28,7 @@ export class HomeComponent implements OnInit {
   heroes: Hero[] = [];
 
   constructor(private heroeService: HeroeService, private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router, public dialog: MatDialog) {
     this.dataSource = new MatTableDataSource<Hero>([]);
   }
 
@@ -57,5 +59,11 @@ export class HomeComponent implements OnInit {
   // Dirige a la pagina de conutla heroe enviando Id como parametro
   goToHero(id) {
     this.router.navigate(['/info/' + id]);
+  }
+
+  help() {
+    const dialogRef = this.dialog.open(DialogConfirmComponent, {
+        data: {procedencia: 'Help'}
+    });
   }
 }

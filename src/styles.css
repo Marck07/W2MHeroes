@@ -8,8 +8,17 @@ html {
 }
 body { margin-top: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.cdk-overlay-pane {
+  min-width: 50%!important;
+}
+
 .padding-container {
   padding: 0px 30px 0px 30px;
+}
+
+.cHand {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .margin-container {

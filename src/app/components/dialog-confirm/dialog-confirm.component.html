@@ -18,8 +18,15 @@
     <h3>Estas seguro de continuar?</h3>
   </mat-dialog-content>
 </div>
+<div class="" *ngIf="data.procedencia === 'Help'">
+  <h2 mat-dialog-title>Acciones</h2>
+  <mat-dialog-content class="mat-typography">
+    <strong>Nuevo Heroe:</strong><h3>Click en boton superior derecho de la pantalla.</h3>
+    <strong>Editar o Eliminar:</strong><h3>Debes Hacer Click sobre uno de tus Heroes.</h3>
+  </mat-dialog-content>
+</div>
 <mat-dialog-actions align="end" class="grid">
-  <div class="col-3">
+  <div class="col-3" *ngIf="data.procedencia != 'Help'">
     <button mat-button mat-dialog-close class="cancel-button">Cancel</button>
   </div>
   <div class="col-3">
