@@ -3,64 +3,66 @@
     <h2>Crea tu Propio Héroe</h2>
   </div>
   <div class="margin-container" *ngIf="hero">
-    <div class="grid">
-      <div class="col-6_sm-12">
-        <mat-form-field class="W100" appearance="none" >
-          <label class="label-input">Nombre</label>
-          <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" class="hero-input" placeholder="Nombre"><br>
-        <label class="label-input-error" *ngIf="nameError && !hero.name">
-          El nombre es Obligatorio
-        </label>
-        </mat-form-field>
-      </div>
-      <div class="col-6_sm-12">
-        <mat-form-field class="W100" appearance="none">
-          <label class="label-input">Identidad</label>
-          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" class="hero-input" placeholder="Identidad Secreta"><br>
-          <label class="label-input-error" *ngIf="identityError && !hero.identity">
-            La Identidad es Obligatoria
+    <form [formGroup]="heroControl">
+      <div class="grid">
+        <div class="col-6_sm-12">
+          <mat-form-field class="W100" appearance="none" >
+            <label class="label-input">Nombre</label>
+            <input matInput appUppercase type="text" formControlName="name" autocomplete="off" class="hero-input" placeholder="Nombre"><br>
+          <label class="label-input-error" *ngIf="nameError && !hero.name">
+            El nombre es Obligatorio
           </label>
-        </mat-form-field>
-      </div>
-    </div>
-
-    <div class="grid">
-      <div class="col-6_sm-8_xs-12">
-        <mat-form-field class="W100" appearance="none" >
-          <label class="label-input">Ciudad</label>
-          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" class="hero-input" placeholder="Ciudad">
-        </mat-form-field>
-      </div>
-      <div class="col-3_xs-6">
-        <mat-form-field class="W100" appearance="none">
-          <label class="label-input">Edad</label>
-          <input matInput type="text" type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" class="hero-input" placeholder="Edad">
-        </mat-form-field>
-      </div>
-      <div class="col-3_sm-6_xs-6">
-        <mat-form-field class="W100" appearance="none">
-          <label class="label-input">Universo</label>
-          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" class="select-button">
-            <mat-option *ngFor="let universe of universes" [value]="universe">
-              {{universe}}
-            </mat-option>
-          </mat-select><br>
-          <label class="label-input-error" *ngIf="universeError && !hero.universe">
-            Universo Obligatorio
-          </label>
-        </mat-form-field>
-      </div>
-    </div>
-    <div class="grid">
-      <div class="grid col-6_sm-12" data-push-left="off-6_sm-0">
-        <div class="col-6">
-          <button (click)="goBack()" class="cancel-button">Cancelar</button>
+          </mat-form-field>
         </div>
-        <div class="col-6">
-          <button (click)="add()" class="confirm-button">Guardar</button>
+        <div class="col-6_sm-12">
+          <mat-form-field class="W100" appearance="none">
+            <label class="label-input">Identidad</label>
+            <input matInput type="text" formControlName='identity' autocomplete="off" class="hero-input" placeholder="Identidad Secreta"><br>
+            <label class="label-input-error" *ngIf="identityError && !hero.identity">
+              La Identidad es Obligatoria
+            </label>
+          </mat-form-field>
         </div>
-
       </div>
-    </div>
+
+      <div class="grid">
+        <div class="col-6_sm-8_xs-12">
+          <mat-form-field class="W100" appearance="none" >
+            <label class="label-input">Ciudad</label>
+            <input matInput type="text" formControlName="city" autocomplete="off" class="hero-input" placeholder="Ciudad">
+          </mat-form-field>
+        </div>
+        <div class="col-3_xs-6">
+          <mat-form-field class="W100" appearance="none">
+            <label class="label-input">Edad</label>
+            <input matInput type="text" type="number" min="10" max="1000" formControlName="age" autocomplete="off" class="hero-input" placeholder="Edad">
+          </mat-form-field>
+        </div>
+        <div class="col-3_sm-6_xs-6">
+          <mat-form-field class="W100" appearance="none">
+            <label class="label-input">Universo</label>
+            <mat-select [(value)]="hero.universe" placeholder="Universo" (selectionChange)="selectionChange($event)" formControName="universe" class="select-button">
+              <mat-option *ngFor="let universe of universes" [value]="universe">
+                {{universe}}
+              </mat-option>
+            </mat-select><br>
+            <label class="label-input-error" *ngIf="universeError && !hero.universe">
+              Universo Obligatorio
+            </label>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="grid col-6_sm-12" data-push-left="off-6_sm-0">
+          <div class="col-6">
+            <button (click)="goBack()" class="cancel-button">Cancelar</button>
+          </div>
+          <div class="col-6">
+            <button (click)="add()" class="confirm-button">Guardar</button>
+          </div>
+
+        </div>
+      </div>
+    </form>
   </div>
 </div>
