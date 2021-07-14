@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
+import { FormControl, FormGroup, FormBuilder } from '@angular/forms';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
@@ -25,11 +26,21 @@ export class HeroesComponent implements OnInit {
   nameError = false;
   identityError = false;
   universeError = false;
-  constructor(private heroeService: HeroeService, private location: Location, public dialog: MatDialog, private route: ActivatedRoute,
-              private router: Router) { }
+  heroControl: FormGroup;
+  constructor(private heroeService: HeroeService,
+              private location: Location, public dialog: MatDialog,
+              private route: ActivatedRoute,
+              private router: Router, public formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getHeroes();
+    this.heroControl = this.formBuilder.group({
+      name: [this.hero.name],
+      identity: [this.hero.identity],
+      city: [this.hero.city],
+      age: [this.hero.age],
+      universe: [this.hero.universe]
+    });
   }
 
   // Obtiene lista de Heroes
@@ -39,8 +50,13 @@ export class HeroesComponent implements OnInit {
     });
   }
 
+  selectionChange(evt) {
+    this.heroControl.value.universe = evt.value;
+  }
+
   // Agrega un nuevo Heroe
   add(): void {
+    this.hero = this.heroControl.value;
     // Valida Nombre, identidad y universo obligatorios.
     if(!this.hero.name){
       this.nameError = true;
