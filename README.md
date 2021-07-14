@@ -3,37 +3,41 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version ~12.0.0.
 
 ## Run With Docker
-=== requiers ===
+### * Requiers *
 
---- Docker
---- docker-compose
+##### Docker
 
-+First:
+##### docker-compose
+
+#### First:
+
   docker-compose up --build
 
-+Then:
+#### Then:
+
   docker run -d -p 8080:80 w2heroes_client-angular
 
-url ---> 0.0.0.0:8080
+###### url ---> 0.0.0.0:8080
 
-stop docker container
+#### stop docker container
   docker stop -t 60 <containerId>
 
 ## Run With npm
-=== requiers ===
 
---- angular-cli ~12.0.0
---- npm
---- nodeJs v12.14
+### * requiers *
 
-+First:
+##### angular-cli ~12.0.0
+##### npm
+##### nodeJs v12.14
+
+#### First:
   npm install
 
-+Then:
+#### Then:
   npm start
 
-url ---> localhost:4200
-  
+###### url ---> localhost:4200
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
