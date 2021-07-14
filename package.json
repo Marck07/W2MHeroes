@@ -24,6 +24,7 @@
     "@angular/router": "~12.0.0",
     "angular-in-memory-web-api": "~0.11.0",
     "gridlex": "^2.7.1",
+    "karma-coverage-istanbul-reporter": "^3.0.3",
     "ngx-loading": "^8.0.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
