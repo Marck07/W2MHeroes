@@ -1,26 +1,22 @@
-<div class="" style="padding: 0px 30px 0px 30px;">
+<div class="padding-container">
   <div class="grid-center" *ngIf="hero">
     <h2>Edita tu Héroe {{hero.name | uppercase}}</h2>
   </div>
-  <div class="" style="margin: 50px 150px 20px 150px;" *ngIf="hero">
+  <div class="margin-container" *ngIf="hero">
     <div class="grid">
-      <div class="col-6">
+      <div class="col-6_sm-12">
         <mat-form-field class="W100" appearance="none">
           <label class="label-input">Nombre</label>
-          <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Nombre"><br>
+          <input matInput appUppercase type="text" [(ngModel)]="hero.name" autocomplete="off" class="hero-input" placeholder="Nombre"><br>
     <label class="label-input-error" *ngIf="nameError && !hero.name">
       El nombre es Obligatorio
     </label>
         </mat-form-field>
       </div>
-      <div class="col-6">
-        <mat-form-field class="" appearance="none" style="width: 100%;">
+      <div class="col-6_sm-12">
+        <mat-form-field class="W100" appearance="none">
           <label class="label-input">Identidad</label>
-          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Identidad Secreta"><br>
+          <input matInput type="text" [(ngModel)]="hero.identity" autocomplete="off" class="hero-input" placeholder="Identidad Secreta"><br>
     <label class="label-input-error" *ngIf="identityError && !hero.identity">
       La Identidad es Obligatoria
     </label>
@@ -29,28 +25,22 @@
     </div>
 
     <div class="grid">
-      <div class="col-6">
-        <mat-form-field class="" appearance="none" style="width: 100%;" >
+      <div class="col-6_sm-8_xs-12">
+        <mat-form-field class="W100" appearance="none">
           <label class="label-input">Ciudad</label>
-          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Ciudad">
+          <input matInput type="text" [(ngModel)]="hero.city" autocomplete="off" class="hero-input" placeholder="Ciudad">
         </mat-form-field>
       </div>
-      <div class="col-3">
-        <mat-form-field class="" appearance="none" style="width: 100%;">
+      <div class="col-3_xs-6">
+        <mat-form-field class="W100" appearance="none">
           <label class="label-input">Edad</label>
-          <input matInput type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 90%;" placeholder="Edad">
+          <input matInput type="number" min="10" max="1000" [(ngModel)]="hero.age" autocomplete="off" class="hero-input" placeholder="Edad">
         </mat-form-field>
       </div>
-      <div class="col-3">
-        <mat-form-field class="" appearance="none" style="width: 100%;">
+      <div class="col-3_sm-6_xs-6">
+        <mat-form-field class="W100" appearance="none">
           <label class="label-input">Universo</label>
-          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" style="background: #FFF;
-        border: 1px solid #cacaca; margin-top: 2px;
-    padding: 12px; border-radius: 8px; width: 80%;">
+          <mat-select [(value)]="hero.universe" placeholder="Universo" [(ngModel)]="hero.universe" class="select-button">
             <mat-option *ngFor="let universe of universes" [value]="universe">
               {{universe}}
             </mat-option>
@@ -62,37 +52,16 @@
       </div>
     </div>
     <div class="grid">
-      <div class="grid col-6" data-push-left="off-6">
-        <div class="col-4">
-          <button (click)="goBack()" style="width: 100%;
-            background: #0a2831;
-            padding: 10px;
-            border: 0;
-            color: #FFF;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;">Cancelar</button>
+      <div class="grid col-6_sm-12" data-push-left="off-6_sm-0">
+        <div class="col-4_xs-12">
+          <button (click)="goBack()" class="cancel-button">Cancelar</button>
         </div>
-        <div class="col-4">
-          <button (click)="delete(hero.id)" style="    width: 100%;
-            background: #c53025;
-            padding: 10px;
-            border: 0;
-            color: #FFF;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;">Eliminar</button>
+        <div class="col-4_xs-12">
+          <button (click)="delete(hero.id)" class="delete-button">Eliminar</button>
         </div>
-        <div class="col-4">
+        <div class="col-4_xs-12">
 
-          <button (click)="save()" style="width: 100%;
-          background: #da742c;
-          padding: 10px;
-          border: 0;
-          color: #FFF;
-          border-radius: 8px;
-          font-weight: bold;
-          cursor: pointer;">Guardar</button>
+          <button (click)="save()" class="confirm-button">Guardar</button>
         </div>
 
       </div>
